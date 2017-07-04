@@ -7,10 +7,10 @@
 		"test": "jest"
 	},
 	"dependencies": {
-		"guid": "^0.0.12",
 		"react": "16.0.0-alpha.12",
 		"react-native": "0.45.1",
-		"react-native-qrcode": "^0.2.3"
+		"react-native-qrcode": "^0.2.3",
+		"react-native-unique-id": "^1.0.4"
 	},
 	"devDependencies": {
 		"babel-jest": "20.0.3",
