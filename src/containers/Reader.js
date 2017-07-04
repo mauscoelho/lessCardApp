@@ -8,13 +8,13 @@ export default class Reader extends Component {
   };
 
   onRead = e => {
-    Alert.alert(e.data);
+    this.props.navigation.goBack()
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Camera style={styles.camera}>
+        <Camera onBarCodeRead={this.onRead} style={styles.camera}>
           <View style={styles.rectangleContainer}>
             <View style={styles.rectangle} />
           </View>
