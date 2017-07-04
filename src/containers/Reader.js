@@ -1,37 +1,51 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Alert } from "react-native";
+import Camera from "react-native-camera";
 
 export default class Reader extends Component {
   static navigationOptions = {
     title: "Reader"
-  };  
+  };
 
-  render() {    
+  onRead = e => {
+    Alert.alert(e.data);
+  };
+
+  render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Reader!          
-        </Text>                
+        <Camera style={styles.camera}>
+          <View style={styles.rectangleContainer}>
+            <View style={styles.rectangle} />
+          </View>
+        </Camera>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({  
+const styles = StyleSheet.create({
+  camera: {
+    flex: 1,
+    alignSelf: 'stretch',
+  },
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "center",    
     alignItems: "center",
     backgroundColor: "#F5FCFF"
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
+  rectangleContainer: {
+    flex: 1,
+    alignItems: "center",    
+    justifyContent: "center",
+    backgroundColor: "transparent"
   },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
+  rectangle: {
+    height: 250,
+    width: 250,
+    borderWidth: 2,
+    borderColor: "white",
+    backgroundColor: "transparent"
   }
 });
