@@ -1,4 +1,4 @@
 import { AppRegistry } from "react-native";
-import lessCardApp from "./src/index";
+import App from "./src/index";
 
-AppRegistry.registerComponent("lessCardApp", () => lessCardApp);
+AppRegistry.registerComponent("lessCardApp", () => App);
