@@ -8,7 +8,10 @@ export default class Reader extends Component {
   };
 
   onRead = e => {
-    this.props.navigation.goBack()
+    const guid = e.data;
+    if (guid) {
+      this.props.navigation.navigate("StampFeedback", { guid });
+    }
   };
 
   render() {
@@ -27,17 +30,17 @@ export default class Reader extends Component {
 const styles = StyleSheet.create({
   camera: {
     flex: 1,
-    alignSelf: 'stretch',
+    alignSelf: "stretch"
   },
   container: {
     flex: 1,
-    justifyContent: "center",    
+    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F5FCFF"
   },
   rectangleContainer: {
     flex: 1,
-    alignItems: "center",    
+    alignItems: "center",
     justifyContent: "center",
     backgroundColor: "transparent"
   },
