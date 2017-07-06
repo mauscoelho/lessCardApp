@@ -1,48 +1,9 @@
 import React, { Component } from "react";
 import { AppRegistry, StyleSheet, Text, View } from "react-native";
+import { Button } from "react-native-elements";
 import QRCode from "react-native-qrcode";
 import uniqueId from "react-native-unique-id";
-import { Button } from "react-native-elements";
-
-export default class lessCardApp extends Component {
-  static navigationOptions = {
-    title: "LessCard"
-  };
-
-  state = {
-    guid: ""
-  };
-
-  componentDidMount() {
-    this.generateGuid();
-  }
-
-  generateGuid = () => {
-    uniqueId().then(guid => this.setState({ guid }));
-  };
-
-  onStamp = () => {
-    this.props.navigation.navigate("Reader");
-  };
-
-  render() {
-    const { guid } = this.state;
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-          {guid}
-        </Text>
-        <QRCode value={guid} size={200} fgColor="white" />
-        <Button
-          style={styles.buttonStamp}
-          onPress={this.onStamp}
-          title={"To Stamp"}
-        />
-      </View>
-    );
-  }
-}
+import { compose, withHandlers, withState, lifecycle } from 'recompose';
 
 const styles = StyleSheet.create({
   buttonStamp: {
@@ -54,14 +15,45 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#F5FCFF"
   },
-  welcome: {
+  textContainer: {
     fontSize: 20,
     textAlign: "center",
     margin: 10
   },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
 });
+
+const onStamp = ({ navigation }) => () => {
+  navigation.navigate("Reader");
+};
+
+const Home = ({ guid, onStamp }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.textContainer}>
+        {guid}
+      </Text>
+      <QRCode value={guid} size={200} fgColor="white" />
+      <Button
+        style={styles.buttonStamp}
+        onPress={onStamp}
+        title={"To Stamp"}
+      />
+    </View>
+  );
+}
+
+const enhance = compose(
+  withState("guid", "setGuid", ''),
+  lifecycle({
+    componentDidMount() {
+      const { guid, setGuid } = this.props;
+      uniqueId().then(newGuid => setGuid(newGuid))
+    }
+  }),
+  withHandlers({
+    onStamp
+  })
+);
+
+export default enhance(Home);
+
