@@ -2,18 +2,6 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Camera from "react-native-camera";
 
-export default function ({ onRead }) {
-	return (
-		<View style={styles.container}>
-			<Camera onBarCodeRead={onRead} style={styles.camera}>
-				<View style={styles.rectangleContainer}>
-					<View style={styles.rectangle} />
-				</View>
-			</Camera>
-		</View>
-	)
-}
-
 const styles = StyleSheet.create({
 	camera: {
 		flex: 1,
@@ -39,3 +27,15 @@ const styles = StyleSheet.create({
 		backgroundColor: "transparent"
 	}
 });
+
+export default function ({ onRead }) {
+	return (
+		<View style={styles.container}>
+			<Camera onBarCodeRead={onRead} style={styles.camera}>
+				<View style={styles.rectangleContainer}>
+					<View style={styles.rectangle} />
+				</View>
+			</Camera>
+		</View>
+	)
+}
