@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const onStamp = ({ navigation }) => {
+const onStamp = ({ navigation }) => () => {
   navigation.navigate("Reader");
 };
 

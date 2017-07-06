@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Alert } from "react-native";
 import { compose, withHandlers } from 'recompose';
 import QrCodeReader from '../components/QrCodeReader';
 
-const onRead = e => {
+const onRead = (e) => {
   const guid = e.data;
   if (guid) {
     this.props.navigation.navigate("StampFeedback", { guid });
@@ -12,7 +12,7 @@ const onRead = e => {
 
 const Reader = (props) => {
   return (
-    <QrCodeReader onRead={onRead} {...props} />
+    <QrCodeReader onRead={props.onRead} {...props} />
   );
 }
 
