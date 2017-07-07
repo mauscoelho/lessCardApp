@@ -1,7 +1,6 @@
 import { StackNavigator } from "react-navigation";
 import Home from "./containers/Home";
 import Reader from "./containers/Reader";
-import StampFeedback from './containers/StampFeedback';
 
 const App = StackNavigator({
   Home: {
@@ -12,10 +11,6 @@ const App = StackNavigator({
     screen: Reader,
     navigationOptions: { title: "Reader" }
   },
-  StampFeedback: {
-    screen: StampFeedback,
-    navigationOptions: { title: "StampFeedback" }
-  }
 });
 
 export default App;

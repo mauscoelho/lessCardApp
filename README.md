@@ -10,3 +10,7 @@ Instead of show traditional loyalty card to stamp, you will show the app with qr
 
 ### Owner user
 Instead of stamp a traditional loyalty card, the owner will read the qr code from a common user
+
+# Principles
+
+- Should be easier than loyalty cards
