@@ -12,10 +12,6 @@ const App = StackNavigator({
     screen: Reader,
     navigationOptions: { title: "Reader" }
   },
-  StampFeedback: {
-    screen: StampFeedback,
-    navigationOptions: { title: "StampFeedback" }
-  }
 });
 
 export default App;
