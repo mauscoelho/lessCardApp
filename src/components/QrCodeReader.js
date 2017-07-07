@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 
 export default function ({ onRead }) {
 	return (
-		<View style={styles.container}>
+		<View style={styles.container}>			
 			<Camera onBarCodeRead={onRead} style={styles.camera}>
 				<View style={styles.rectangle} />
 			</Camera>
