@@ -1,12 +1,17 @@
 import React from "react";
+import axios from 'axios';
 import { compose, withHandlers, withState, renderComponent, branch } from 'recompose';
 import QrCodeReader from '../components/QrCodeReader';
 import Loading from '../components/Loading';
 
 const onRead = ({ isCodeRead, setCodeRead, navigation, setLoading }) => (e) => {
+  const guid = e.data;
   if (!isCodeRead) {
     setCodeRead(true);
-    setLoading(true);
+    setLoading(true);    
+    axios.post("http://loyalti-cart-test-com.umbler.net/stamp", {
+      guid
+    });
     navigation.goBack();
   }
 };

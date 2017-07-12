@@ -8,6 +8,7 @@
     "storybook": "storybook start -p 7007"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "react": "16.0.0-alpha.12",
     "react-native": "0.45.1",
     "react-native-camera": "^0.9.4",
